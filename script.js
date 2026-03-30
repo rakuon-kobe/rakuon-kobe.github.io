@@ -285,16 +285,24 @@ document.getElementById('mainForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
 
-    // 送信処理の最初に追加
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    // ★追加：大学名と学年のデータを整形（「その他」なら自由記述の内容を採用）
-    data.university = data.univ_select === "その他" ? data.univ_other : data.univ_select;
-    data.grade = data.grade_select === "その他" ? data.grade_other : data.grade_select;
-
+    // アーティスト欄のクリア（既存）
     if (currentEventType !== 'live') {
         data.target_artist = "";
+    }
+
+    // ★追加：楽器体験会（A・B）以外の時は、楽器関連の項目を空にする
+    if (currentEventType !== 'instrumentsA' && currentEventType !== 'instrumentsB') {
+        data.experience = "";
+        data.bring_own = "";
+    }
+
+    // 大学名・学年の整形（前の回答で追加した場合）
+    if (data.univ_select) {
+        data.university = data.univ_select === "その他" ? data.univ_other : data.univ_select;
+        data.grade = data.grade_select === "その他" ? data.grade_other : data.grade_select;
     }
 
     // ハニーポット（hp_field）に値が入っていたら、送信せずに終了する
