@@ -1,17 +1,7 @@
 /* ==========================================
    1. 変数とベース設定
    ========================================== */
-html {
-    font-size: 70%;
-}
-
-@media (max-width: 640px) {
-    html {
-        font-size: 75%;
-    }
-}
-
-   :root {
+:root {
     /* 全体共通の色 */
     --bg-color: #F9F9FB;      /* 背景：オフホワイト */
     --text-main: #0D1821;    /* 主文字：ディープネイビー */
@@ -240,4 +230,14 @@ input[type="radio"]:checked + div {
 
 .text-available {
     color: #2E86AB !important;
+}
+
+html {
+    font-size: 90% !important; /* PC: 90%に強制 */
+}
+
+@media (max-width: 640px) {
+    html {
+        font-size: 80% !important; /* スマホ: 80%まで下げる */
+    }
 }
