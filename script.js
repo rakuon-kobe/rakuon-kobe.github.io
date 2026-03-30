@@ -3,7 +3,7 @@
  * すべてのロジック、色制御、通信処理を含みます。
  */
 
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxsIKcl-u7RshWKMPlJgueDZQa_ne5GVEydnDul4NjDa0QaXB9BamzBhkYNJ6uunuMp/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzDbI68k1uOmrvuLpD3C3xQXOY2ZNkWA2mDmdcZ7jWVIUwyBy7mqSrBnoYvGpIc1oAF/exec";
 
 // 5分間(300000ms)は連投を禁止する設定
 const COOLDOWN_MS = 60000; 
@@ -270,6 +270,14 @@ function toggleBringOwn() {
     const val = document.getElementById('expSelect').value;
     document.getElementById('bringOwnBox').classList.toggle('hidden', val !== '経験あり');
 }
+function toggleUnivOther() {
+    const val = document.getElementById('univSelect').value;
+    document.getElementById('univOther').classList.toggle('hidden', val !== 'その他');
+}
+function toggleGradeOther() {
+    const val = document.getElementById('gradeSelect').value;
+    document.getElementById('gradeOther').classList.toggle('hidden', val !== 'その他');
+}
 
 // の送信処理部分を修正
 
@@ -280,6 +288,10 @@ document.getElementById('mainForm').addEventListener('submit', async (e) => {
     // 送信処理の最初に追加
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+
+    // ★追加：大学名と学年のデータを整形（「その他」なら自由記述の内容を採用）
+    data.university = data.univ_select === "その他" ? data.univ_other : data.univ_select;
+    data.grade = data.grade_select === "その他" ? data.grade_other : data.grade_select;
 
     if (currentEventType !== 'live') {
         data.target_artist = "";
