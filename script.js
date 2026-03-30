@@ -329,14 +329,19 @@ document.getElementById('mainForm').addEventListener('submit', async (e) => {
             document.getElementById('page3').classList.remove('hidden');
             window.scrollTo(0, 0);
         } else if (result.status === "duplicate") {
-            // ★ 重複エラーの時の処理を追加
             alert("【エラー】\nこのイベントには、入力されたInstagramアカウントで既に申し込みが完了しています。\n\n内容の変更を希望する場合は、InstagramのDMまでご連絡ください。");
             btn.disabled = false;
             btn.innerText = "予約を確定する";
         } else if (result.status === "full") {
             alert("申し訳ありません！入力中に満員になってしまいました。");
             location.reload();
+        } else if (result.status === "limit_exceeded") {
+            // ★ ここを追加：GAS側で設定したメッセージ（回数制限）を表示する
+            alert(result.message);
+            btn.disabled = false;
+            btn.innerText = "予約を確定する";
         } else {
+            // それ以外の不明なエラー（spam判定などもここに含まれます）
             throw new Error(result.message);
         }
     } catch(e) {
