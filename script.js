@@ -6,7 +6,7 @@
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyPCi5GUrm1wIJm9Wza6NS8I4VUJhG6ICCC9HJOXNCpjT3__TH_LGe2qUJjFAdDcan6/exec";
 
 // 5分間(300000ms)は連投を禁止する設定
-const COOLDOWN_MS = 1000; 
+const COOLDOWN_MS = 60000; 
 const LAST_SUBMIT_KEY = "rakuon_last_submit";
 
 // イベントごとの詳細データ（テーマカラー、発光色を追加）
