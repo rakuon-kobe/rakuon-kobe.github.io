@@ -281,6 +281,10 @@ document.getElementById('mainForm').addEventListener('submit', async (e) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
+    if (currentEventType !== 'live') {
+        data.target_artist = "";
+    }
+
     // ハニーポット（hp_field）に値が入っていたら、送信せずに終了する
     if (data.hp_field) {
         console.warn("Spam detected");
