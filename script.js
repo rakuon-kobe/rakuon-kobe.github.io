@@ -294,7 +294,7 @@ document.getElementById('mainForm').addEventListener('submit', async (e) => {
     // 2. ブラウザ側連投制限 (Cooldown)
     const lastSubmit = localStorage.getItem(LAST_SUBMIT_KEY);
     if (lastSubmit && (Date.now() - lastSubmit < COOLDOWN_MS)) {
-        alert("短時間に何度も送信することはできません。時間を置いてから再度お試しください。");
+        alert("短時間に何度も送信することはできません。1分ほど待ってから再度お試しください。");
         return;
     }
     
