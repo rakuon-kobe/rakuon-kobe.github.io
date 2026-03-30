@@ -241,7 +241,7 @@ async function renderCapacityTable() {
             const prefix = currentEventType === 'instrumentsA' ? 'A_' : 'B_'; // AかBかを判定
             const key = prefix + `${slot}_${inst}`; // GAS側のキーと合わせる
             const count = counts[key] || 0;
-            const isFull = count >= 3;
+            const isFull = count >= 4;
             
             if(isFull) {
                 html += `<td class="p-4 border-b text-red-500 font-bold bg-red-50 text-xs">満員</td>`;
@@ -252,7 +252,7 @@ async function renderCapacityTable() {
                         <input type="radio" name="selection" value="${slot}|${inst}" required class="hidden peer">
                         <div class="py-2 rounded-lg border-2 border-transparent peer-checked:bg-white transition-all hover:bg-slate-50">
                             <div class="font-bold text-[11px] text-available">予約可</div>
-                            <div class="text-[9px] opacity-60">残り${3-count}</div>
+                            <div class="text-[9px] opacity-60">残り${4-count}</div>
                         </div>
                     </label>
                 </td>`;
