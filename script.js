@@ -3,7 +3,7 @@
  * すべてのロジック、色制御、通信処理を含みます。
  */
 
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwuaepcnav_f0wMGkgjNqGpV-yE9m-003TC3tdVaDgrHUSeFspKjcNjozzknXGxgIVU/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbztwPg7WkkMZ26VPINmkU3B9_m8YhsUh_qDLuYtUSZdZd4S2NPur88eUsenXQyK58zR/exec";
 
 // 5分間(300000ms)は連投を禁止する設定
 const COOLDOWN_MS = 1000; 
