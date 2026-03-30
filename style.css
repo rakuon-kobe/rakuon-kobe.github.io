@@ -1,0 +1,233 @@
+/* ==========================================
+   1. 変数とベース設定
+   ========================================== */
+:root {
+    /* 全体共通の色 */
+    --bg-color: #F9F9FB;      /* 背景：オフホワイト */
+    --text-main: #0D1821;    /* 主文字：ディープネイビー */
+    --text-muted: #4A5E6D;   /* 補助文字：グレー */
+    --border-color: #E0E6ED; /* 枠線：薄いグレー */
+    
+    /* 動的に変わるテーマカラー（初期値はネイビー） */
+    --theme-color: #2B4162; 
+    --theme-glow: rgba(43, 65, 98, 0.2);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ユーティリティ */
+.hidden { display: none; }
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   2. イベント一覧カード（Page 1）
+   ========================================== */
+.event-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* 読み込み中 */
+.event-card[data-status="loading"] {
+    background-color: #f1f5f9;
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* 予約受付中（ホバー時にイベント色を反映） */
+.event-card[data-status="active"] {
+    cursor: pointer;
+}
+.event-card[data-status="active"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--theme-glow);
+}
+/* 各イベント固有の枠線（一覧画面用） */
+#btn-takopa[data-status="active"] { border-color: #F5B82E; }
+#btn-picnic[data-status="active"] { border-color: #F5B82E; }
+#btn-instrumentsA[data-status="active"] { border-color: #FFD131; }
+#btn-instrumentsB[data-status="active"] { border-color: #FFD131; }
+#btn-live[data-status="active"] { border-color: #F86624; }
+
+/* 満員御礼 */
+.event-card[data-status="full"] {
+    background-color: #f8fafc;
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+/* 予約受付前 */
+.event-card[data-status="coming-soon"] {
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+    cursor: not-allowed;
+}
+
+/* 終了済み */
+.event-card[data-status="ended"] {
+    background-color: #e2e8f0;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ステータステキストの出し分け */
+.status-text span { display: none; }
+[data-status="loading"] .txt-loading { display: flex; }
+[data-status="active"] .txt-active { display: inline; }
+[data-status="full"] .txt-full { display: block; }
+[data-status="coming-soon"] .txt-coming { display: block; }
+[data-status="ended"] .txt-ended { display: block; }
+[data-status="error"] .txt-error { display: block; }
+
+/* ==========================================
+   3. イベント詳細（Page 1.5） & フォーム（Page 2）
+   ========================================== */
+.detail-card {
+    border-top: 12px solid var(--theme-color) !important; /* テーマ色をメインに */
+    background-color: #ffffff;
+}
+
+/* 文頭揃え（Flexbox）の設定 */
+.flex-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.label-box {
+    width: 6rem; /* ラベル幅を固定 */
+    flex-shrink: 0;
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 0.875rem;
+    padding-top: 0.25rem;
+}
+
+.content-box {
+    flex: 1;
+    line-height: 1.7;
+    word-break: break-all;
+}
+
+/* メインボタン（予約に進む・確定する） */
+.primary-btn {
+    background-color: var(--theme-color) !important; /* メインカラーを背景に */
+    color: var(--text-main) !important;            /* 文字は読みやすいネイビー */
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    font-weight: 900;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px var(--theme-glow);
+    border: none;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+.primary-btn:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px var(--theme-glow);
+}
+
+.primary-btn:disabled {
+    background-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* フォームヘッダー */
+#formHeader {
+    background-color: var(--theme-color) !important;
+    transition: background-color 0.4s ease;
+}
+
+#formHeader h2 {
+    color: var(--text-main) !important; /* ヘッダー文字もネイビー */
+    font-weight: 900;
+}
+
+/* ==========================================
+   4. フォーム部品（入力欄・テーブル）
+   ========================================== */
+input[type="text"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.2s;
+    color: var(--text-main);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--theme-color);
+    box-shadow: 0 0 0 4px var(--theme-glow);
+}
+
+/* 楽器体験会のテーブル内ラジオボタン */
+input[type="radio"]:checked + div {
+    border-color: var(--theme-color) !important;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px var(--theme-glow);
+}
+
+/* ローディングスピナー */
+.loader {
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid var(--theme-color);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* レスポンス調整 */
+@media (max-width: 640px) {
+    .label-box {
+        width: 5rem;
+        font-size: 0.75rem;
+    }
+    .event-card {
+        padding: 1.5rem;
+    }
+}
+
+.text-available {
+    color: #2E86AB !important;
+}
