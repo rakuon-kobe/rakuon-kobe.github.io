@@ -20,7 +20,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "みんなでワイワイたこ焼きを焼きましょう！おひとり様でも大丈夫です😊",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/03/01 09:00",
+        reserveStart: "2026/04/08 10:00",
         eventEnd: "2026/04/18 11:00",
         theme: "#F5B82E",
         glow: "rgba(245, 184, 46, 0.3)"
@@ -33,7 +33,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "公園で軽食を食べながらみんなでおしゃべりしましょう！おひとり様でも大丈夫です😊",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/03/01 09:00",
+        reserveStart: "2026/04/22 10:00",
         eventEnd: "2026/05/02 14:00",
         theme: "#F5B82E",
         glow: "rgba(245, 184, 46, 0.3)"
@@ -46,7 +46,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "楽器を実際に触ってみる体験会です。未経験者・初心者大歓迎！先輩が丁寧に教えてくれます🎸",
         belongings: "特になし（自分の楽器を持ってきていただいても大丈夫です！）",
-        reserveStart: "2026/03/01 09:00",
+        reserveStart: "2026/04/15 10:00",
         eventEnd: "2026/04/25 10:00",
         theme: "#FFD131",
         glow: "rgba(255, 209, 49, 0.3)"
@@ -59,7 +59,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "楽器を実際に触ってみる体験会です。未経験者・初心者大歓迎！先輩が丁寧に教えてくれます🎸",
         belongings: "特になし（自分の楽器を持ってきていただいても大丈夫です！）",
-        reserveStart: "2026/03/01 09:00",
+        reserveStart: "2026/04/29 10:00",
         eventEnd: "2026/05/09 10:00",
         theme: "#FFD131",
         glow: "rgba(255, 209, 49, 0.3)"
@@ -72,7 +72,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "現役部員による迫力のライブ！楽音のライブの雰囲気を味わいに来てください🎤",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/03/01 09:00",
+        reserveStart: "2026/05/06 10:00",
         eventEnd: "2026/05/16 10:00",
         theme: "#F86624",
         glow: "rgba(248, 102, 36, 0.3)"
