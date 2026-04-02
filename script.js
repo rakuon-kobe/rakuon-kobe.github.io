@@ -147,6 +147,9 @@ function handleErrorState() {
  * 2. 詳細画面（Page 1.5）の表示
  */
 async function loadEvent(type) {
+    const btn = document.getElementById(`btn-${type}`);
+    if (btn.dataset.status !== 'active') return;
+    
     currentEventType = type;
     const d = EVENT_DETAILS[type];
 
