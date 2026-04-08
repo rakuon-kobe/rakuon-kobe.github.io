@@ -46,7 +46,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "楽器を実際に触ってみる体験会です。未経験者・初心者大歓迎！先輩が丁寧に教えてくれます🎸",
         belongings: "特になし（自分の楽器を持ってきていただいても大丈夫です！）",
-        reserveStart: "2026/04/09 12:00",
+        reserveStart: "2026/04/10 12:00",
         eventEnd: "2026/04/25 10:00",
         theme: "#FFD131",
         glow: "rgba(255, 209, 49, 0.3)"
