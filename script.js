@@ -72,7 +72,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "現役部員による迫力のライブ！楽音のライブの雰囲気を味わいに来てください🎤",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/04/17 12:00",
+        reserveStart: "2026/04/18 12:00",
         eventEnd: "2026/05/16 10:00",
         theme: "#F86624",
         glow: "rgba(248, 102, 36, 0.3)"
