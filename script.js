@@ -185,6 +185,14 @@ async function goToForm() {
     document.getElementById('eventTitle').innerText = d.title;
     eventInput.value = d.gasName; 
 
+    // ★ 追加：イベントに応じて「その他何かあれば」のヒント文を切り替える
+    const messageBox = document.querySelector('textarea[name="message"]');
+    if (type === 'live') {
+        messageBox.placeholder = "一緒に参加するお友達の名前、途中参加・退出の時間など";
+    } else {
+        messageBox.placeholder = "友達と一緒に参加される場合は、お相手のお名前もこちらにご記入ください！";
+    }
+
     // ★フォーム項目の切り替えロジック
     // 1. 楽器体験会用（AまたはB）
     if (type === 'instrumentsA' || type === 'instrumentsB') {
