@@ -33,7 +33,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "公園で軽食を食べながらみんなでおしゃべりしましょう！おひとり様でも大丈夫です😊",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/04/19 10:00",
+        reserveStart: "2026/04/22 10:00",
         eventEnd: "2026/05/02 14:00",
         theme: "#F5B82E",
         glow: "rgba(245, 184, 46, 0.3)"
