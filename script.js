@@ -33,7 +33,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "公園で軽食を食べながらみんなでおしゃべりしましょう！おひとり様でも大丈夫です😊",
         belongings: "特になし（手ぶらでOK！）",
-        reserveStart: "2026/04/22 12:00",
+        reserveStart: "2026/04/30 12:00",
         eventEnd: "2026/05/02 11:00",
         theme: "#F5B82E",
         glow: "rgba(245, 184, 46, 0.3)"
@@ -59,7 +59,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "楽器を実際に触ってみる体験会です。未経験者・初心者大歓迎！先輩が丁寧に教えてくれます🎸",
         belongings: "特になし（自分の楽器を持ってきていただいても大丈夫です！）",
-        reserveStart: "2026/04/26 12:00",
+        reserveStart: "2026/05/08 12:00",
         eventEnd: "2026/05/09 10:00",
         theme: "#FFD131",
         glow: "rgba(255, 209, 49, 0.3)"
