@@ -67,7 +67,7 @@ const EVENT_DETAILS = {
     live: { // ★新規カラーと設定で作成
         title: "新歓ライブ 🎤",
         gasName: "新歓ライブ", 
-        date: "5月16日(土) 13:30～",
+        date: "5月16日(土) 13:40～18:30",
         location: "神戸ALWAYS（阪急六甲駅すぐ）",
         fee: "無料",
         description: "現役部員による迫力のライブ！楽音のライブの雰囲気を味わいに来てください🎤",
