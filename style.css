@@ -100,6 +100,21 @@ body {
 [data-status="ended"] .txt-ended { display: block; }
 [data-status="error"] .txt-error { display: block; }
 
+/* 1. 全てのカードに基準の順序をつける（デフォルトは 0） */
+.event-card {
+    order: 1;
+}
+
+/* 2. 終了したカードの順序を大きくして、後ろに回す */
+.event-card[data-status="ended"] {
+    order: 10;
+}
+
+/* （おまけ）予約受付前も少し下に下げたい場合はこちら */
+.event-card[data-status="coming-soon"] {
+    order: 5;
+}
+
 /* ==========================================
    3. イベント詳細（Page 1.5） & フォーム（Page 2）
    ========================================== */
