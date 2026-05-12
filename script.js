@@ -28,7 +28,7 @@ const EVENT_DETAILS = {
     picnic: { // ★タコパと同じ設定で作成
         title: "ピクニック 🥪",
         gasName: "ピクニック", 
-        date: "5月2日(火) 12:00〜15:00",
+        date: "5月12日(火) 12:00〜15:00",
         location: "三ノ宮駅近くの公園 ※詳細は予約確定後にお送りします",
         fee: "無料",
         description: "公園で軽食を食べながらみんなでおしゃべりしましょう！おひとり様でも大丈夫です😊",
@@ -59,7 +59,7 @@ const EVENT_DETAILS = {
         fee: "無料",
         description: "楽器を実際に触ってみる体験会です。未経験者・初心者大歓迎！先輩が丁寧に教えてくれます🎸",
         belongings: "特になし（自分の楽器を持ってきていただいても大丈夫です！）",
-        reserveStart: "2026/04/27 12:00",
+        reserveStart: "2026/04/26 12:00",
         eventEnd: "2026/05/09 10:00",
         theme: "#FFD131",
         glow: "rgba(255, 209, 49, 0.3)"
@@ -67,7 +67,7 @@ const EVENT_DETAILS = {
     live: { // ★新規カラーと設定で作成
         title: "新歓ライブ 🎤",
         gasName: "新歓ライブ", 
-        date: "5月16日(土) 13:40～18:30",
+        date: "5月16日(土) 13:30～",
         location: "神戸ALWAYS（阪急六甲駅すぐ）",
         fee: "無料",
         description: "現役部員による迫力のライブ！楽音のライブの雰囲気を味わいに来てください🎤",
@@ -76,6 +76,15 @@ const EVENT_DETAILS = {
         eventEnd: "2026/05/16 10:00",
         theme: "#F86624",
         glow: "rgba(248, 102, 36, 0.3)"
+    },
+    admission: { // ★追加
+        title: "入会希望 📝",
+        gasName: "入会希望",
+        reserveStart: "2026/04/01 00:00", // いつからでも押せるように過去の日付にする
+        eventEnd: "2026/05/23 17:00",   // 新歓期間が終わる頃の日付にする
+        googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSej7VdGCNagWsQR_6W70kwRzPDj4oVvrmyZlLbVOnLLb4R13A/viewform?embedded=true", // ★自分のGoogleフォームのURLに書き換えてください
+        theme: "#4F46E5", // インディゴ色
+        glow: "rgba(79, 70, 229, 0.3)"
     }
 };
 
@@ -101,6 +110,7 @@ async function checkOverallCapacity() {
         applyStatus('instrumentsA', status.instrumentsAFull);
         applyStatus('instrumentsB', status.instrumentsBFull);
         applyStatus('live', status.liveFull);
+        applyStatus('admission', false); // ★追加（入会は常に受付中）
     } catch (e) {
         clearTimeout(timeout);
         console.error("Capacity Check Error:", e);
@@ -149,6 +159,14 @@ function handleErrorState() {
 async function loadEvent(type) {
     const btn = document.getElementById(`btn-${type}`);
     if (btn.dataset.status !== 'active') return;
+
+    // ★追加：入会希望の場合はGoogleフォームページへ
+    if (type === 'admission') {
+        document.getElementById('page1').classList.add('hidden');
+        document.getElementById('page-admission').classList.remove('hidden');
+        window.scrollTo(0, 0);
+        return;
+    }
     
     currentEventType = type;
     const d = EVENT_DETAILS[type];
