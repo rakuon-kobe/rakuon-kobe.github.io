@@ -92,6 +92,17 @@
                         <span class="txt-error text-red-600 text-xs font-bold">⚠️ エラー：ページを更新してください</span>
                     </div>
                 </button>
+
+                <button id="btn-admission" data-status="loading" onclick="loadEvent('admission')" class="event-card border-indigo-600">
+                    <div>
+                        <div class="font-bold flex items-center gap-2 text-indigo-600">公式入会用フォーム</div>
+                        <div class="text-2xl font-black mt-2">入会希望 📝</div>
+                    </div>
+                    <div class="status-text mt-4">
+                        <span class="txt-active text-sm font-normal opacity-60">フォームを開く →</span>
+                        <span class="txt-loading items-center gap-2 font-bold italic animate-pulse"><div class="loader w-4 h-4 border-2 border-slate-200 rounded-full"></div>確認中...</span>
+                    </div>
+                </button>
             </div>
         </section>
 
@@ -260,8 +271,31 @@
             </button>
         </section>
 
+        <section id="page-admission" class="hidden fade-in">
+            <button onclick="location.reload()" class="mb-8 text-slate-500 font-bold hover:underline flex items-center gap-1">
+                ← 戻る
+            </button>
+            <div class="bg-white shadow-2xl rounded-3xl overflow-hidden border">
+                <div class="bg-indigo-600 px-8 py-6">
+                    <h2 class="text-2xl font-black text-white">楽音 入会申し込み</h2>
+                </div>
+                <div class="w-full h-[800px]">
+                    <iframe 
+                        id="google-form-iframe"
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSej7VdGCNagWsQR_6W70kwRzPDj4oVvrmyZlLbVOnLLb4R13A/viewform?embedded=true" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                        読み込み中…
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <script src="script.js?v=20260402"></script>
+    <script src="script.js?v=20260511"></script>
 </body>
 </html>
